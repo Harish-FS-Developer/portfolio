@@ -413,14 +413,88 @@ body {
 
 }
 
+/* 1. BASE TITLE STYLES */
 .title {
+  /* Retain your core styles */
   margin: 80px auto 50px;
   width: fit-content;
   font-size: 47px;
   padding-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  border-bottom: 1px dashed white;
+  color: white; 
+  
+  /* Key for positioning the lines */
+  position: relative; 
+  
+  /* Remove the old dashed border */
+  border-bottom: none; 
+  overflow: hidden; 
+}
+
+/* 2. LEFT SLIDING LINE (::before) */
+.title::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  
+  /* Initial state: The line is ALWAYS visible at 50% width */
+  width: 50%; 
+  height: 3px;
+  
+  /* Gradient for a glowing effect: Neon Blue */
+  background: linear-gradient(to right, transparent, #00e5ff, #00e5ff); 
+  
+  /* Apply the animation */
+  animation: slideLeft 2s infinite alternate; 
+}
+
+/* 3. RIGHT SLIDING LINE (::after) */
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  
+  /* Initial state: The line is ALWAYS visible at 50% width */
+  width: 50%; 
+  height: 3px;
+  
+  /* Gradient for a glowing effect: Neon Blue (to left for proper fade) */
+  background: linear-gradient(to left, transparent, #00e5ff, #00e5ff); 
+  
+  /* Apply the animation */
+  animation: slideRight 2s infinite alternate; 
+}
+
+/* 4. KEYFRAMES FOR ALTERNATING MOTION */
+
+/* Moves the left line slightly toward the center (50%) and then away (48%) */
+@keyframes slideLeft {
+  from {
+    width: 48%;
+  }
+  to {
+    width: 52%;
+  }
+}
+
+/* Moves the right line slightly toward the center (50%) and then away (48%) */
+@keyframes slideRight {
+  from {
+    width: 48%;
+  }
+  to {
+    width: 52%;
+  }
+}
+
+/* 5. OPTIONAL: Hover to intensify the glow */
+.title:hover::before,
+.title:hover::after {
+  /* You can add a box-shadow here to make the glow stronger on hover */
+  box-shadow: 0 0 10px #00e5ff;
 }
 
 
@@ -668,7 +742,8 @@ body {
 
 .shape:hover {
   clip-path: circle(75% at 50% 50%); /* expand circle */
-  background-color: gray;         /* optional color change */
+  background-color: rgba(000, 000, 000, 0.3);  
+        /* optional color change */
 }
 
 /* .skills .box:hover .shape {
@@ -736,12 +811,12 @@ body {
 @keyframes fadeSlideUp {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-10px);
   }
 }
 
@@ -1718,6 +1793,8 @@ body {
 .projectbox .glass {  
   top: 5px;
   left: -10px;
+    transition: all 2s ease-in-out;
+
   
 }
 
@@ -1725,6 +1802,22 @@ body {
 bottom: 10px;
 left: 0px;
 
+}
+
+
+.projectbox:hover .glass {
+  top: 5px;
+  left: -370px;
+}
+
+.projectbox:hover .image {
+  bottom: 10px;
+left: 10px;
+}
+
+
+.project a {
+  margin: auto;
 }
 
 .projectcontent p {
