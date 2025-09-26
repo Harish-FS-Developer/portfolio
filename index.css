@@ -494,7 +494,7 @@ body {
 .title:hover::before,
 .title:hover::after {
   /* You can add a box-shadow here to make the glow stronger on hover */
-  box-shadow: 0 0 10px #00e5ff;
+  box-shadow: 30 0 10px #00e5ff;
 }
 
 
@@ -1256,6 +1256,7 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
 }
 
 .socialmediaimage {
@@ -1307,6 +1308,49 @@ body {
 .socialmedia:nth-child(6) {
   background: linear-gradient(to bottom, #000000 50%, #3678c5 100%);
 }
+
+
+
+.socialmedia:nth-child(1):hover {
+  box-shadow: 0 0 15px #2c7cb2; 
+  transform: scale(0.8);
+}
+
+
+.socialmedia:nth-child(2):hover {
+  box-shadow: 0 0 15px #a0b22c; 
+    transform: scale(0.8);
+
+}
+
+.socialmedia:nth-child(3):hover {
+  box-shadow: 0 0 15px #25d3c8; 
+    transform: scale(0.8);
+
+}
+
+
+.socialmedia:nth-child(4):hover {
+  box-shadow: 0 0 15px #409327; 
+    transform: scale(0.8);
+
+}
+
+
+.socialmedia:nth-child(5):hover {
+  box-shadow: 0 0 15px #892793; 
+    transform: scale(0.8);
+
+}
+
+
+.socialmedia:nth-child(6):hover {
+  box-shadow: 0 0 15px #3678c5; 
+    transform: scale(0.8);
+
+}
+
+
 
 
 
